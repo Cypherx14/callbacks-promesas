@@ -1,11 +1,25 @@
-import { saludar } from './js/componentes.js';
+
 import './styles.css';
+import {buscarHeroe} from './js/callbacks'
 
 
-const nombre = 'Fernando Alex';
+const heroeId = 'capi';
+const heroeId2 = 'spider';
 
-saludar(nombre);
 
-import { saludo } from './js/componentes.js';
+buscarHeroe(heroeId, (err, heroe1) => {
+    if(err){
+        return console.error(err);
+    }
 
-saludo();
+    buscarHeroe(heroeId2, (err, heroe2) => {
+        if(err){
+            return console.error(err);
+        }
+
+        console.log(`Enviando a ${heroe1.nombre} y ${heroe2.nombre} a la mision`);
+    });  
+
+});
+
+console.log('fin de la app');
