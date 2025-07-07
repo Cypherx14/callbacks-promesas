@@ -21,10 +21,11 @@ export const buscarHeroe = (id) => {
     // Retorna una promesa
     return new Promise((resolve, reject) => {
         if (heroe) {
-            setTimeout(() => {      
+            setTimeout(() => {    
+                 // Si el heroe existe, se resuelve la promesa  
                 resolve(heroe);
             }, 1000); // Simula un retardo de 1 segundo
-            // Si el heroe existe, se resuelve la promesa
+           
         } else {
             // Si el heroe no existe, se rechaza la promesa
             reject(`No existe un héroe con el id ${id}`);

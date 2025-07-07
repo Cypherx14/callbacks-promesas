@@ -32,8 +32,21 @@ const obtenerHeroesArrOptimizado = async () => {
     return await Promise.all(heroesIds.map(buscarHeroe));
 }
 
+// manejo de errores con await
+const obtenerHeroeAwait = async (id) => {
+    try {
+        const heroe = await buscarHeroeAsync(id);
+        return heroe;
+    } catch (error) {
+        // Manejo de errores, puedes lanzar un error o retornar null
+        console.log('CATCH');
+        console.warn(error);
+        return null; // o lanzar un error, dependiendo de la lógica de tu aplicación
+    }
+}
 
 export {
     obtenerHeroesArr,
-    obtenerHeroesArrOptimizado
+    obtenerHeroesArrOptimizado,
+    obtenerHeroeAwait
 }
